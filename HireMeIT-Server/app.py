@@ -38,7 +38,11 @@ def serve_static(path):
 
 @app.route('/api/jobs', methods=['GET'])
 def get_jobs():
-    jobs = Job.query.all()
+    _limit = request.args.get('_limit', type=int)
+    query = Job.query
+    if _limit:
+        query = query.limit(_limit)
+    jobs = query.all()
     return jsonify([{
         'id': job.id,
         'title': job.title,
