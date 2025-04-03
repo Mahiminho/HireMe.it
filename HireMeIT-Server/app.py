@@ -1,11 +1,9 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import mimetypes
-# import os
+import os
 
 app = Flask(__name__, static_folder="../HireMeIT-Client/dist", static_url_path="/")
-
-# port = int(os.getenv("PORT", 5000))
 
 mimetypes.add_type("application/javascript", ".js")
 
@@ -117,5 +115,6 @@ def update_job(id):
     return jsonify({'message': 'Job updated successfully'})
 
 if __name__ == '__main__':
-    #app.run(host="0.0.0.0", port=port, debug=True)
-    app.run(debug=True)
+    port = int(os.getenv("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
+    # app.run(debug=True)
