@@ -115,6 +115,6 @@ def update_job(id):
     return jsonify({'message': 'Job updated successfully'})
 
 if __name__ == '__main__':
-    port = int(os.getenv("PORT", 10000))
+    port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
     # app.run(debug=True)
