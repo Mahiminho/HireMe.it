@@ -29,7 +29,7 @@ export default defineConfig({
     port: process.env.PORT || 3000,
     proxy: {
       '/api': {
-        target: process.env.BACKEND_URL || 'https://hireme-it.onrender.com',
+        target: process.env.BACKEND_URL || 'https://hireme-it.onrender.com' || 'http://127.0.0.1:10000' || 'http://10.204.189.63:10000',
         changeOrigin: true,
         secure: false
       }
