@@ -39,7 +39,7 @@ def serve_static(path):
 @app.route('/api/jobs', methods=['GET'])
 def get_jobs():
     _limit = request.args.get('_limit', type=int)
-    query = Job.query
+    query = Job.query.order_by(Job.id.desc())
     if _limit:
         query = query.limit(_limit)
     jobs = query.all()
